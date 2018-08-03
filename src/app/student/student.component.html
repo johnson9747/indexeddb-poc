@@ -1,0 +1,33 @@
+<table>
+  <tr>
+      <th>Student Name</th>
+      <th>Gender</th>
+      <th>Country</th>
+      <th>City</th>
+  </tr>
+  <tr>
+    <td><input type="text" [(ngModel)]="newStudent.name" /></td>
+    <td>
+        <select [(ngModel)]="newStudent.gender">
+    <option value="m">Male</option>
+    <option value="f">FeMale</option>
+  </select>
+        <td><input type="text" [(ngModel)]="newStudent.country" /></td>
+        <td><input type="text" [(ngModel)]="newStudent.city" /></td>
+        <td>
+            <button (click)="addStudent()">Add</button>
+        </td>
+        <td>
+            <button (click)="clearNewStudent()">Cancel</button>
+        </td>
+</tr>
+  <tr *ngFor="let student of students" [attr.data-id]="student.id">
+      <td>{{student.name}}
+      </td>
+      <td>{{student.gender=='m'?'Male':'Female'}}
+      </td>
+      <td>{{student.country}}
+      </td>
+      <td>{{student.city}}</td>
+  </tr>
+</table>
